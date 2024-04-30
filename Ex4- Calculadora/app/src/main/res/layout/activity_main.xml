@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/customborder"
+
+        >
+        <Button
+            android:id="@+id/btlimpar"
+            style="@style/CalculatorButton"
+            android:text="C"
+            android:backgroundTint="@color/orange"
+            android:onClick="acaobt"
+            >
+        </Button>
+
+        <EditText
+            android:id="@+id/texto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:textAlignment="textEnd"
+            >
+
+        </EditText>
+
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <Button
+                android:id="@+id/bt7"
+                style="@style/CalculatorButton"
+                android:text="7"
+                android:onClick="acaobt"
+
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt8"
+                style="@style/CalculatorButton"
+                android:text="8"
+                android:onClick="acaobt"
+
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt9"
+                style="@style/CalculatorButton"
+                android:text="9"
+                android:onClick="acaobt"
+
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/btx"
+                style="@style/CalculatorButton"
+                android:text="X"
+                android:onClick="acaobt"
+
+                >
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <Button
+                android:id="@+id/bt4"
+                style="@style/CalculatorButton"
+                android:text="4"
+                android:onClick="acaobt"
+
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt5"
+                style="@style/CalculatorButton"
+                android:text="5"
+                android:onClick="acaobt"
+
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt6"
+                style="@style/CalculatorButton"
+                android:text="6"
+                android:onClick="acaobt"
+
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/btmais"
+                style="@style/CalculatorButton"
+                android:text="+"
+                android:onClick="acaobt"
+                >
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <Button
+                android:id="@+id/bt3"
+                style="@style/CalculatorButton"
+                android:text="3"
+                android:onClick="acaobt"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt2"
+                style="@style/CalculatorButton"
+                android:text="2"
+                android:onClick="acaobt"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt1"
+                style="@style/CalculatorButton"
+                android:text="1"
+                android:onClick="acaobt"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/btmenos"
+                style="@style/CalculatorButton"
+                android:text="-"
+                android:onClick="acaobt"
+                >
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <Button
+                android:id="@+id/btponto"
+                style="@style/CalculatorButton"
+                android:text="."
+                android:onClick="acaobt"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/bt0"
+                style="@style/CalculatorButton"
+                android:text="0"
+                android:onClick="acaobt"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/btigual"
+                style="@style/CalculatorButton"
+                android:text="="
+                android:backgroundTint="@color/orange"
+                android:onClick="acaobt"
+                >
+
+            </Button>
+
+            <Button
+                android:id="@+id/btdivide"
+                style="@style/CalculatorButton"
+                android:text="/"
+                android:onClick="acaobt"
+                >
+            </Button>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
