@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity {
             result = numeroB + numeroA;
         }
         if(resultado.equals("-")){
-            result = numeroB - numeroA;
+            result = numeroA - numeroB;
         }
         if(resultado.equals("*")){
             result = numeroB * numeroA;
         }
         if(resultado.equals("/")){
-            result = numeroB / numeroA;
+            result = numeroA / numeroB;
         }
        textoOperacao.setText(String.valueOf(result));
     }

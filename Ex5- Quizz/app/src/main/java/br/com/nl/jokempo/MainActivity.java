@@ -125,14 +125,11 @@ public class MainActivity extends AppCompatActivity {
 
         if(numeroPergunta==Perguntas.length){
 
-
             opcaoA.setEnabled(false);
             opcaoB.setEnabled(false);
             opcaoC.setEnabled(false);
             radioGroup.clearCheck();
             confereResultado();
-
-
 
         }else {
 
@@ -147,10 +144,6 @@ public class MainActivity extends AppCompatActivity {
             radioGroup.clearCheck();
         }
     }
-
-
-
-
 
 
     public  void confereResultado(){
