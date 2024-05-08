@@ -113,36 +113,43 @@ public class MainActivity extends AppCompatActivity {
         boolean success;
         String message;
 
-        if (updatingContact != null) {
-            updatingContact.setNome(textoNome.getText().toString());
-            updatingContact.setTelefone(textoNumero.getText().toString());
-            updatingContact.setEndereco(textoEndereco.getText().toString());
-            updatingContact.setEmail(textoEmail.getText().toString());
-            updatingContact.setImageURI(imagemUri);
+        if(textoNome.getText().toString().isEmpty() || textoNumero.getText().toString().isEmpty()
+                || textoEndereco.getText().toString().isEmpty() || textoEmail.getText().toString().isEmpty()){
+            Toast.makeText(this, "Todos os campos devem ser preenchidos!", Toast.LENGTH_SHORT).show();
+        }else{
+            if (updatingContact != null) {
+                updatingContact.setNome(textoNome.getText().toString());
+                updatingContact.setTelefone(textoNumero.getText().toString());
+                updatingContact.setEndereco(textoEndereco.getText().toString());
+                updatingContact.setEmail(textoEmail.getText().toString());
+                updatingContact.setImageURI(imagemUri);
 
-            success = dbHandler.updateContact(updatingContact);
-            message = String.format("%s foi atualizado com sucesso!", updatingContact.getName());
+                success = dbHandler.updateContact(updatingContact);
+                message = String.format("%s foi atualizado com sucesso!", updatingContact.getName());
 
-            updatingContact = null;
-            textoTitulo.setText("Adicionar Contato");
-            botaoAdicionar.setText("Adicionar");
-        } else {
-            Contato contato = new Contato(String.valueOf(textoNome.getText()), String.valueOf(textoNumero.getText()), String.valueOf(textoEmail.getText()), String.valueOf(textoEndereco.getText()), imagemUri);
+                updatingContact = null;
+                textoTitulo.setText("Adicionar Contato");
+                botaoAdicionar.setText("Adicionar");
+            } else {
+                Contato contato = new Contato(String.valueOf(textoNome.getText()), String.valueOf(textoNumero.getText()), String.valueOf(textoEmail.getText()), String.valueOf(textoEndereco.getText()), imagemUri);
 
-            success = dbHandler.createContact(contato);
-            message = String.format("%s foi adicionado aos contatos!", contato.getName());
+                success = dbHandler.createContact(contato);
+                message = String.format("%s foi adicionado aos contatos!", contato.getName());
+            }
+
+            if (success) {
+                tabHost.setCurrentTab(TAB_CONTACT_LIST);
+                popularLista();
+                limparDados();
+
+            } else {
+                message = "ocorreu um erro na operação";
+            }
+
+            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+
         }
 
-        if (success) {
-            tabHost.setCurrentTab(TAB_CONTACT_LIST);
-            popularLista();
-            limparDados();
-
-        } else {
-            message = "ocorreu um erro na operação";
-        }
-
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {

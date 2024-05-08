@@ -30,3 +30,8 @@ Repositório de projetos Java Android desenvolvidos como parte de um curso da Ud
 
 <h3>Simples tela com campo que adiciona tarefas em um ListView, tarefas ficam salvas no banco SQLite</h3>
 <h3>Utilizando ListView, AlertDialog e SQLiteDatabase</h3>
+
+   <h2>  <!-- PERMISSÕES DE CAMERA  -->
+   <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> </h2>

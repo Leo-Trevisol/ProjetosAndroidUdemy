@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "350174249118",
+    "project_id": "novoprojetofirebase-ea96a",
+    "storage_bucket": "novoprojetofirebase-ea96a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350174249118:android:2728673d7789bd17237b8f",
+        "android_client_info": {
+          "package_name": "com.projeto.novoprojetofirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrt0_j8s6vylkOefMXDHMJJheT_lOyf7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
