@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         btLogout.setOnClickListener(v -> {
 
+            //faz o logout do usuário do firebase
             firebaseAuth.signOut();
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);

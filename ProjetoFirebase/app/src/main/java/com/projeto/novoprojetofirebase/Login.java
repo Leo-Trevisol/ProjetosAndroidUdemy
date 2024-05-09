@@ -69,6 +69,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        btRegitsrar.setOnClickListener(view -> {
+            Intent intent = new Intent(this, Register.class);
+            startActivity(intent);
+            finish();
+        });
+
         checkMostrarSenha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

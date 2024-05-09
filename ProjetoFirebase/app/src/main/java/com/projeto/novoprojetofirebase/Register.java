@@ -66,6 +66,7 @@ public class Register extends AppCompatActivity {
 
                     progressBar.setVisibility(View.VISIBLE);
 
+                    //cria usuário no firebase
                     firebaseAuth.createUserWithEmailAndPassword(loginRegister, senhaRegister).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -84,6 +85,12 @@ public class Register extends AppCompatActivity {
             }else{
                 Toast.makeText(this, "Todos os campos devem ser preenchidos!", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btLogin.setOnClickListener(view -> {
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            finish();
         });
 
     }
