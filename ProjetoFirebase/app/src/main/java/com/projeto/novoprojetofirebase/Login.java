@@ -64,6 +64,8 @@ public class Login extends AppCompatActivity {
                         }
                     }
                 });
+            }else{
+                Toast.makeText(this, "Todos os campos devem ser preenchidos!", Toast.LENGTH_SHORT).show();
             }
         });
 
