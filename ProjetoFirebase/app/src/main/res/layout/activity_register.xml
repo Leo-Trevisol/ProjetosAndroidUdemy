@@ -12,13 +12,36 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar conta"
+        android:text="Criar conta"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:layout_marginBottom="120dp"
         android:textAlignment="center">
 
     </TextView>
+
+    <EditText
+        android:id="@+id/edit_nome_register"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white">
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_sobrenome_register"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:hint="Sobrenome"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white">
+    </EditText>
 
     <EditText
         android:id="@+id/edit_email_register"
@@ -28,6 +51,7 @@
         android:inputType="textEmailAddress"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/white">
     </EditText>
 
@@ -47,7 +71,7 @@
         android:id="@+id/edit_confirmar_senha_register"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:hint="Senha"
+        android:hint="Confirmar Senha"
         android:inputType="textPassword"
         android:textColorHint="@color/white"
         android:textColor="@color/white"

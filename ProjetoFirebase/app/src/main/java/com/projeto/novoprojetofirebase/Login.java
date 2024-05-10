@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
             String loginEmail = editEmail.getText().toString();
             String loginSenha = editSenha.getText().toString();
 
-            if(!TextUtils.isEmpty(loginEmail) || !TextUtils.isEmpty(loginSenha)){
+            if(!TextUtils.isEmpty(loginEmail) && !TextUtils.isEmpty(loginSenha)){
                 progressBar.setVisibility(View.VISIBLE);
 
                 //verifica usuario por email e senha, configurados manualmente no firebase -> Authentication -> Usuários

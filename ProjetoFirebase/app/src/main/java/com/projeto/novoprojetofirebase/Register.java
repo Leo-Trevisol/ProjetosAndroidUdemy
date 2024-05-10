@@ -20,10 +20,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.projeto.novoprojetofirebase.model.UserModel;
 
 public class Register extends AppCompatActivity {
 
-    private EditText editEmail,editSenha,editConfirmSenha;
+    private EditText editEmail,editSenha,editConfirmSenha, editNome, editSobrenome;
     private CheckBox checkMostrarSenha;
     private Button btLogin,btRegitsrar;
     private FirebaseAuth firebaseAuth;
@@ -38,6 +42,8 @@ public class Register extends AppCompatActivity {
         editEmail = findViewById(R.id.edit_email_register);
         editSenha = findViewById(R.id.edit_senha_register);
         editConfirmSenha = findViewById(R.id.edit_confirmar_senha_register);
+        editNome = findViewById(R.id.edit_nome_register);
+        editSobrenome = findViewById(R.id.edit_sobrenome_register);
         btLogin = findViewById(R.id.bt_login_register);
         btRegitsrar= findViewById(R.id.bt_registrar_register);
         checkMostrarSenha = findViewById(R.id.check_mostrar_senha_register);
@@ -57,25 +63,51 @@ public class Register extends AppCompatActivity {
         });
 
         btRegitsrar.setOnClickListener(v -> {
-            String loginRegister = editEmail.getText().toString();
+
+            UserModel userModel = new UserModel();
+
+            userModel.setEmail(editEmail.getText().toString());
+            userModel.setNome(editNome.getText().toString());
+            userModel.setSobrenome(editSobrenome.getText().toString());
             String senhaRegister = editSenha.getText().toString();
             String senhaConfirmarRegister = editConfirmSenha.getText().toString();
 
-            if(!TextUtils.isEmpty(loginRegister) || !TextUtils.isEmpty(senhaRegister) || !TextUtils.isEmpty(senhaConfirmarRegister)){
+            if(!TextUtils.isEmpty(userModel.getEmail()) && !TextUtils.isEmpty(senhaRegister) &&
+                    !TextUtils.isEmpty(senhaConfirmarRegister) && !TextUtils.isEmpty(userModel.getNome())
+                    &&!TextUtils.isEmpty(userModel.getSobrenome())){
                 if(senhaRegister.equals(senhaConfirmarRegister)){
 
                     progressBar.setVisibility(View.VISIBLE);
 
                     //cria usuário no firebase
-                    firebaseAuth.createUserWithEmailAndPassword(loginRegister, senhaRegister).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.createUserWithEmailAndPassword(userModel.getEmail(), senhaRegister).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                //seta id do usuario
+                                userModel.setId(firebaseAuth.getUid());
+                                userModel.salvar();
                                 abrirTelaPrincipal();
                             }else{
-                                String error = task.getException().getMessage();
-                                Toast.makeText(Register.this, "Erro: " + error, Toast.LENGTH_SHORT).show();
+                                //tratamento de exceções
+                                String error = null;
+                                try {
+
+                                    throw task.getException();
+
+                                } catch(FirebaseAuthWeakPasswordException e){
+                                    error = "A senha deve conter no mínimo 6 caracteres";
+                                } catch (FirebaseAuthInvalidCredentialsException e) {
+                                    error = "E-mail inválido";
+                                }catch(FirebaseAuthUserCollisionException e){
+                                    error = "E-mail já existe";
+                                } catch (Exception e) {
+                                   error = "Falha ao cadastrar usuário";
+                                   e.printStackTrace();
+                                }
+                                Toast.makeText(Register.this, error, Toast.LENGTH_SHORT).show();
                             }
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     });
 

@@ -9,8 +9,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/Área de Trabalho/and/ProjetosAndroidUdemy/ProjetoFirebase" />
-            <option value="$USER_HOME$/Área de Trabalho/and/ProjetosAndroidUdemy/ProjetoFirebase/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
